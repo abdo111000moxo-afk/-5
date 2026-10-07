@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أحمد | Media Buying & Growth Marketing Hub</title>
+  
+  <!-- خط Cairo وأيقونات Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-main: #070a12;
+      --bg-card: rgba(15, 23, 42, 0.75);
+      --border-color: rgba(0, 240, 255, 0.18);
+      --neon-cyan: #00f0ff;
+      --neon-purple: #8b5cf6;
+      --neon-green: #10b981;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --gradient-accent: linear-gradient(135deg, #00f0ff 0%, #8b5cf6 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      overflow-x: hidden;
+      line-height: 1.6;
+      background-image: 
+        radial-gradient(circle at 10% 15%, rgba(0, 240, 255, 0.08) 0%, transparent 35%),
+        radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 35%);
+      background-attachment: fixed;
+    }
+
+    /* الشريط الترويجي العلوي */
+    .top-bar {
+      background: linear-gradient(90deg, #7928ca, #0070f3);
+      padding: 8px 15px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .countdown-timer {
+      background: rgba(0, 0, 0, 0.35);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+    }
+
+    /* شريط التصفح */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      backdrop-filter: blur(20px);
+      background: rgba(7, 10, 18, 0.88);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.8rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+    
+    .brand-logo-container {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1.5px solid var(--neon-cyan);
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-text h2 {
+      font-size: 1.3rem;
+      font-weight: 900;
+      line-height: 1.1;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .brand-text span {
+      font-size: 0.75rem;
+      color: var(--neon-cyan);
+      letter-spacing: 0.5px;
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.6rem;
+    }
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: var(--neon-cyan);
+    }
+
+    .btn-glow {
+      background: var(--gradient-accent);
+      color: #fff;
+      padding: 0.55rem 1.4rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.35);
+      transition: all 0.3s ease;
+    }
+    .btn-glow:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
+    }
+
+    /* الواجهة التقديمية (Hero Section) */
+    .hero {
+      padding: 4.5rem 1.5rem 3rem;
+      text-align: center;
+      max-width: 950px;
+      margin: 0 auto;
+    }
+    .badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      background: rgba(0, 240, 255, 0.08);
+      border: 1px solid var(--neon-cyan);
+      color: var(--neon-cyan);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      line-height: 1.35;
+      margin-bottom: 1.4rem;
+    }
+    .hero h1 span.gradient {
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 800px;
+      margin: 0 auto 2.2rem;
+    }
+
+    /* العدادات والإحصائيات */
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.2rem;
+      max-width: 1100px;
+      margin: 1rem auto 4.5rem;
+      padding: 0 1.5rem;
+    }
+    .stat-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      backdrop-filter: blur(14px);
+      padding: 1.6rem 1.2rem;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .stat-number {
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: var(--neon-cyan);
+      margin-bottom: 0.3rem;
+    }
+    .stat-label {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .stat-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* الأقسام العامة */
+    .section {
+      max-width: 1150px;
+      margin: 0 auto 5rem;
+      padding: 0 1.5rem;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-header h2 {
+      font-size: 2.2rem;
+      font-weight: 900;
+      margin-bottom: 0.6rem;
+    }
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* نظام المسارات (Tracks & Modules) */
+    .tracks-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-muted);
+      padding: 0.7rem 1.8rem;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+    }
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--gradient-accent);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+    }
+
+    .track-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+    .module-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.8rem;
+      position: relative;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    .module-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 240, 255, 0.15);
+      border-color: var(--neon-cyan);
+    }
+    .module-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.2rem;
+    }
+    .module-badge {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: rgba(0, 240, 255, 0.1);
+      color: var(--neon-cyan);
+      font-weight: 700;
+    }
+    .module-card h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 0.7rem;
+    }
+    .module-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+    }
+    .module-features {
+      list-style: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 1rem;
+    }
+    .module-features li {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .module-features li i {
+      color: var(--neon-cyan);
+      font-size: 0.8rem;
+    }
+
+    /* باقات الاشتراكات */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 1.8rem;
+      align-items: center;
+    }
+    .pricing-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2.5rem 1.8rem;
+      position: relative;
+      backdrop-filter: blur(12px);
+      transition: all 0.3s;
+    }
+    .pricing-card.featured {
+      border: 2px solid var(--neon-cyan);
+      box-shadow: 0 0 35px rgba(0, 240, 255, 0.2);
+      transform: scale(1.03);
+    }
+    .popular-tag {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gradient-accent);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 4px 16px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+    .pricing-header h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+    .price-value {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--neon-cyan);
+      margin: 1.2rem 0;
+    }
+    .price-value span {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+    .pricing-list {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+    .pricing-list li {
+      font-size: 0.95rem;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #e2e8f0;
+    }
+    .pricing-list li i {
+      color: var(--neon-green);
+    }
+
+    /* ========================================================
+       الزر العائم الذكي (+) مع قائمة الخيارات التفاعلية
+    ======================================================== */
+    .smart-hub-container {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 10000;
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: flex-end;
+      gap: 14px;
+    }
+
+    /* الزر الرئيسي (+) المتوهج */
+    .smart-hub-btn {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: var(--gradient-accent);
+      border: none;
+      color: #fff;
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 0 25px rgba(0, 240, 255, 0.5);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .smart-hub-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 35px rgba(0, 240, 255, 0.8);
+    }
+    /* دوران الزر ليصبح علامة X عند الفتح */
+    .smart-hub-container.active .smart-hub-btn {
+      transform: rotate(135deg);
+      background: #ef4444;
+      box-shadow: 0 0 25px rgba(239, 68, 68, 0.6);
+    }
+
+    /* قائمة الخيارات المنبثقة */
+    .smart-options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px) scale(0.9);
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+    .smart-hub-container.active .smart-options-list {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .smart-option-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid var(--border-color);
+      padding: 6px 14px 6px 8px;
+      border-radius: 35px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s ease;
+    }
+    .smart-option-item:hover {
+      transform: translateX(-5px);
+      border-color: var(--neon-cyan);
+      box-shadow: 0 10px 30px rgba(0, 240, 255, 0.25);
+    }
+    .smart-option-label {
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .smart-option-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+
+    .icon-ai {
+      background: #0d1322;
+      border: 1.5px solid var(--neon-cyan);
+      box-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+    }
+    .icon-wa {
+      background: #25d366;
+      box-shadow: 0 0 12px rgba(37, 211, 102, 0.4);
+      font-size: 22px;
+    }
+
+    /* نافذة المحادثة للموظف الافتراضي */
+    .ai-chat-window {
+      position: fixed;
+      bottom: 105px;
+      right: 30px;
+      width: 380px;
+      height: 520px;
+      background: #0b1120;
+      border: 1px solid var(--neon-cyan);
+      border-radius: 20px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 240, 255, 0.2);
+      display: none;
+      flex-direction: column;
+      z-index: 10001;
+      overflow: hidden;
+      backdrop-filter: blur(15px);
+    }
+    .ai-chat-window.active {
+      display: flex;
+      animation: popUp 0.3s ease forwards;
+    }
+
+    @keyframes popUp {
+      from { opacity: 0; transform: translateY(20px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .ai-chat-header {
+      background: rgba(15, 23, 42, 0.95);
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .ai-profile {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .ai-avatar {
+      width: 38px;
+      height: 38px;
+      background: #070a12;
+      border: 1px solid var(--neon-cyan);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ai-title h4 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .ai-title span {
+      font-size: 0.75rem;
+      color: var(--neon-green);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .close-ai-chat {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .ai-chat-messages {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .msg {
+      max-width: 85%;
+      padding: 10px 14px;
+      border-radius: 14px;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .msg.bot {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+      align-self: flex-start;
+      border-bottom-right-radius: 2px;
+    }
+    .msg.user {
+      background: var(--gradient-accent);
+      color: #fff;
+      align-self: flex-end;
+      border-bottom-left-radius: 2px;
+    }
+
+    .ai-quick-questions {
+      padding: 8px 12px;
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      background: rgba(0, 0, 0, 0.25);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      scrollbar-width: none;
+    }
+    .quick-chip {
+      background: rgba(0, 240, 255, 0.08);
+      border: 1px solid rgba(0, 240, 255, 0.25);
+      color: var(--neon-cyan);
+      font-size: 0.75rem;
+      padding: 5px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .quick-chip:hover {
+      background: var(--neon-cyan);
+      color: #070a12;
+    }
+
+    .ai-chat-input-area {
+      padding: 10px 12px;
+      background: rgba(15, 23, 42, 0.95);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      gap: 8px;
+    }
+    .ai-chat-input-area input {
+      flex: 1;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 25px;
+      padding: 8px 14px;
+      color: #fff;
+      font-size: 0.88rem;
+      outline: none;
+    }
+    .ai-chat-input-area input:focus {
+      border-color: var(--neon-cyan);
+    }
+    .ai-send-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--gradient-accent);
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* التذييل */
+    footer {
+      background: #04070d;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 4rem 1.5rem 2rem;
+      text-align: center;
+    }
+    .footer-box {
+      max-width: 750px;
+      margin: 0 auto 2.5rem;
+    }
+    .footer-phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      padding: 10px 24px;
+      border-radius: 30px;
+      color: var(--neon-cyan);
+      font-size: 1.2rem;
+      font-weight: 800;
+      text-decoration: none;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .hero h1 { font-size: 2.1rem; }
+      .ai-chat-window { width: 92%; right: 4%; bottom: 95px; }
+      .smart-hub-container { bottom: 20px; right: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- شريط الإعلان العلوي -->
+  <div class="top-bar">
+    <span>🔥 استشارات تسويقية وخطط إعلانية شاملة لنمو المبيعات للربع الحالي</span>
+    <div class="countdown-timer">
+      <i class="fa-regular fa-clock"></i> العرض ساري لفترة محدودة: <span id="timer">48:15:20</span>
+    </div>
+  </div>
+
+  <!-- شريط التصفح -->
+  <header>
+    <a href="#" class="brand">
+      <div class="brand-logo-container">
+        <!-- شعار الـ AI المرفق -->
+        <svg style="width: 32px; height: 32px;" viewBox="0 0 100 100" fill="none">
+          <defs>
+            <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00f0ff"/>
+              <stop offset="100%" stop-color="#8b5cf6"/>
+            </linearGradient>
+          </defs>
+          <path d="M 45 20 H 30 A 10 10 0 0 0 20 30 V 42 H 30 M 20 58 V 70 A 10 10 0 0 0 30 80 H 45 M 20 50 H 32" stroke="url(#aiGrad)" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="32" cy="42" r="3.5" fill="#00f0ff"/>
+          <circle cx="34" cy="50" r="3.5" fill="#00f0ff"/>
+          <rect x="36" y="36" width="28" height="28" rx="6" fill="#070a12" stroke="url(#aiGrad)" stroke-width="2.5"/>
+          <text x="50" y="54" fill="#00f0ff" font-size="13" font-weight="900" text-anchor="middle" font-family="sans-serif">AI</text>
+          <path d="M 55 20 C 70 18 85 28 85 40 C 88 48 85 58 82 62 C 85 70 78 80 62 80 C 58 80 55 78 55 78" stroke="url(#aiGrad)" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <h2>أحمد <i class="fa-solid fa-circle-check" style="color: var(--neon-cyan); font-size: 0.9rem;"></i></h2>
+        <span>MEDIA BUYER & SALES GROWTH</span>
+      </div>
+    </a>
+
+    <nav>
+      <a href="#about">الرؤية</a>
+      <a href="#tracks">منظومة العمل</a>
+      <a href="#packages">الباقات والتعاقد</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="https://wa.me/201552207343" target="_blank" class="btn-glow">
+        <i class="fa-brands fa-whatsapp"></i> احجز استشارتك
+      </a>
+    </div>
+  </header>
+
+  <!-- الواجهة الرئيسية -->
+  <section class="hero" id="about">
+    <div class="badge-tag">
+      <i class="fa-solid fa-bolt"></i> نظام تسويقي مدفوع بالبيانات والذكاء الاصطناعي
+    </div>
+    <h1>تحويل الميزانية الإعلانية من مجرد تكلفة إلى <span class="gradient">محرك نمو وأرباح مستمرة</span></h1>
+    <p>
+      أساعد أصحاب الأنشطة التجارية والمتاجر الإلكترونية على بناء منظومات بيع متكاملة، تبدأ من فهم العميل والمنافسين إلى إدارة الإعلانات الممولة وصفحات الهبوط وصولاً لمضاعفة التحويلات.
+    </p>
+
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a href="#packages" class="btn-glow" style="padding: 0.8rem 2.2rem; font-size: 1rem;">
+        <i class="fa-solid fa-rocket"></i> استكشف أنظمة التعاقد
+      </a>
+      <a href="https://wa.me/201552207343" target="_blank" class="btn-glow" style="background: transparent; border: 1px solid var(--neon-cyan); color: var(--neon-cyan); box-shadow: none;">
+        <i class="fa-solid fa-phone"></i> تواصل معي: 01552207343
+      </a>
+    </div>
+  </section>
+
+  <!-- عدادات الإنجاز -->
+  <div class="stats-container">
+    <div class="stat-box">
+      <div class="stat-number">ROAS+</div>
+      <div class="stat-label">عائد استثماري مضاعف</div>
+      <div class="stat-sub">تحسين تكلفة الاكتساب والـ CPA</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">Full Funnel</div>
+      <div class="stat-label">مسار بيعي متكامل</div>
+      <div class="stat-sub">ربط الإعلان بصفحات الهبوط للشراء</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">AI Powered</div>
+      <div class="stat-label">ذكاء اصطناعي تحليلي</div>
+      <div class="stat-sub">عصف ذهني واختبار محتوى سريع</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">100% Data</div>
+      <div class="stat-label">قرارات مبنية على الأرقام</div>
+      <div class="stat-sub">تحليل أداء يومي وتفادي التخمين</div>
+    </div>
+  </div>
+
+  <!-- المسارات التنفيذية -->
+  <section class="section" id="tracks">
+    <div class="section-header">
+      <h2>الدلائل والمنظومات التسويقية</h2>
+      <p>خدمات متخصصة مصممة على هيئة مسارات تنفيذية تضمن لك نتائج واضحة</p>
+    </div>
+
+    <div class="tracks-tabs">
+      <button class="tab-btn active" onclick="filterTrack('all')"><i class="fa-solid fa-layer-group"></i> كل المجالات</button>
+      <button class="tab-btn" onclick="filterTrack('ads')"><i class="fa-solid fa-rectangle-ad"></i> الحملات والإعلانات</button>
+      <button class="tab-btn" onclick="filterTrack('dev')"><i class="fa-solid fa-code"></i> المواقع والـ Funnels</button>
+      <button class="tab-btn" onclick="filterTrack('creative')"><i class="fa-solid fa-pen-ruler"></i> المحتوى والذكاء الاصطناعي</button>
+    </div>
+
+    <div class="track-grid">
+      <div class="module-card track-item" data-category="ads">
+        <div class="module-header">
+          <div class="module-badge">مسار الـ Media Buying</div>
+          <i class="fa-brands fa-facebook fa-xl" style="color: var(--neon-cyan);"></i>
+        </div>
+        <h3>إدارة حملات Meta & TikTok Ads</h3>
+        <p>إدارة متكاملة للحملات الإعلانية على Facebook وInstagram وTikTok مع ضبط البيكسل، التتبع، وهيكلة الميزانية.</p>
+        <ul class="module-features">
+          <li><i class="fa-solid fa-check"></i> تحديد واختبار شرائح الجمهور الدقيقة</li>
+          <li><i class="fa-solid fa-check"></i> تحسين مستمر لمعدلات التحويل (CR)</li>
+          <li><i class="fa-solid fa-check"></i> تقارير وتحليلات أسبوعية واضحة</li>
+        </ul>
+      </div>
+
+      <div class="module-card track-item" data-category="dev">
+        <div class="module-header">
+          <div class="module-badge">مسار التحويل والمواقع</div>
+          <i class="fa-solid fa-desktop fa-xl" style="color: var(--neon-purple);"></i>
+        </div>
+        <h3>صفحات الهبوط والمتاجر (Landing Pages)</h3>
+        <p>بناء وتطوير صفحات هبوط سريعة الاستجابة ومواقع تجارية مصممة ومكتوبة سيكولوجياً لتحويل الزائر إلى مشترٍ مباشر.</p>
+        <ul class="module-features">
+          <li><i class="fa-solid fa-check"></i> تصميم متوافق 100% مع شاشات الهواتف</li>
+          <li><i class="fa-solid fa-check"></i> ربط مباشر بأنظمة الدفع والواتساب</li>
+          <li><i class="fa-solid fa-check"></i> سرعة تحميل فائقة وتتبع للزوار</li>
+        </ul>
+      </div>
+
+      <div class="module-card track-item" data-category="creative">
+        <div class="module-header">
+          <div class="module-badge">مسار الـ Creative & AI</div>
+          <i class="fa-solid fa-brain fa-xl" style="color: var(--neon-cyan);"></i>
+        </div>
+        <h3>صناعة المحتوى وكتابة الإعلانات (Copywriting)</h3>
+        <p>صياغة رسائل تسويقية موجهة ومبتكرة باستخدام أدوات الذكاء الاصطناعي مع دراسة سلوك المستهلك والمنافسين.</p>
+        <ul class="module-features">
+          <li><i class="fa-solid fa-check"></i> ابتكار زوايا إعلانية غير تقليدية (Hooks & Angles)</li>
+          <li><i class="fa-solid fa-check"></i> خطط نشر تسويقية لحسابات السوشيال ميديا</li>
+          <li><i class="fa-solid fa-check"></i> عروض تسويقية لا تُقاوم (Irresistible Offers)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- باقات التعاقد -->
+  <section class="section" id="packages">
+    <div class="section-header">
+      <h2>باقات التعاقد والنمو</h2>
+      <p>اختر النظام الأنسب لطبيعة نشاطك التجاري لبدء الانطلاق فوراً</p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <h3>باقة الإعلانات (Media Buyer)</h3>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">للأنشطة التي تمتلك متجر وتريد إدارة إعلانية احترافية</p>
+        </div>
+        <div class="price-value">تعاقد شهري <span>/ حملات</span></div>
+        <ul class="pricing-list">
+          <li><i class="fa-solid fa-circle-check"></i> إدارة إعلانات Meta و TikTok</li>
+          <li><i class="fa-solid fa-circle-check"></i> إعداد واختبار الـ Creatives</li>
+          <li><i class="fa-solid fa-circle-check"></i> ضبط أحداث التتبع والبيكسل</li>
+          <li><i class="fa-solid fa-circle-check"></i> تقارير أداء دورية بالأرقام</li>
+        </ul>
+        <a href="https://wa.me/201552207343?text=مرحباً%20أحمد،%20أريد%20الاستفسار%20عن%20باقة%20الـ%20Media%20Buyer" target="_blank" class="btn-glow" style="width: 100%; justify-content: center;">
+          طلب الباقة عبر واتساب
+        </a>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="popular-tag">الأكثر طلباً ونمواً 🔥</div>
+        <div class="pricing-header">
+          <h3>باقة منظومة النمو (Full Funnel)</h3>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">الحل الشامل من البرمجة والتسويق حتى الإغلاق</p>
+        </div>
+        <div class="price-value">شامل متكامل <span>/ نمو</span></div>
+        <ul class="pricing-list">
+          <li><i class="fa-solid fa-circle-check"></i> تصميم وبرمجة Landing Page فائقة السرعة</li>
+          <li><i class="fa-solid fa-circle-check"></i> كتابة المحتوى والـ Copywriting التسويقي</li>
+          <li><i class="fa-solid fa-circle-check"></i> إدارة الحملات وتوسيع الميزانية (Scaling)</li>
+          <li><i class="fa-solid fa-circle-check"></i> دعم فني ومتابعة مستمرة عبر واتساب</li>
+        </ul>
+        <a href="https://wa.me/201552207343?text=مرحباً%20أحمد،%20أريد%20الاستفسار%20عن%20باقة%20منظومة%20النمو%20Full%20Funnel" target="_blank" class="btn-glow" style="width: 100%; justify-content: center;">
+          احجز مكانك الآن
+        </a>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <h3>استشارة واستراتيجية خاصة</h3>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">جلسة خاصة لتحليل حسابك الإعلاني وموقعك ورسم الخطة</p>
+        </div>
+        <div class="price-value">جلسة استشارية <span>/ تحليل</span></div>
+        <ul class="pricing-list">
+          <li><i class="fa-solid fa-circle-check"></i> مراجعة الحملات الحالية وتحديد الأخطاء</li>
+          <li><i class="fa-solid fa-circle-check"></i> تحليل تجربة المستخدم في متجرك</li>
+          <li><i class="fa-solid fa-circle-check"></i> وضع استراتيجية إعلانية للـ 3 أشهر القادمة</li>
+          <li><i class="fa-solid fa-circle-check"></i> خطة عمل مكتوبة وقابلة للتطبيق</li>
+        </ul>
+        <a href="https://wa.me/201552207343?text=مرحباً%20أحمد،%20أريد%20حجز%20جلسة%20استشارة%20تسويقية%20خاصة" target="_blank" class="btn-glow" style="width: 100%; justify-content: center; background: rgba(255,255,255,0.08); border: 1px solid var(--neon-cyan); box-shadow: none;">
+          حجز جلسة استشارة
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       الزر العائم الذكي (+) الجامع للواتساب والذكاء الاصطناعي
+  ======================================================== -->
+  <div class="smart-hub-container" id="smartHubContainer">
+    <!-- الزر الرئيسي (+) -->
+    <button class="smart-hub-btn" id="smartHubBtn" title="تواصل أو تحدث مع الذكاء الاصطناعي">
+      <i class="fa-solid fa-plus"></i>
+    </button>
+
+    <!-- الخيارات المنبثقة الأنيقة -->
+    <div class="smart-options-list">
+      <!-- خيار 1: الموظف الافتراضي AI بالشعار -->
+      <div class="smart-option-item" id="triggerAiChat">
+        <span class="smart-option-label">تحدث مع موظف أحمد الذكي</span>
+        <div class="smart-option-icon icon-ai">
+          <!-- الشعار داخل الأيقونة -->
+          <svg style="width: 26px; height: 26px;" viewBox="0 0 100 100" fill="none">
+            <path d="M 45 20 H 30 A 10 10 0 0 0 20 30 V 42 H 30 M 20 58 V 70 A 10 10 0 0 0 30 80 H 45 M 20 50 H 32" stroke="#00f0ff" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="32" cy="42" r="4" fill="#00f0ff"/>
+            <rect x="36" y="36" width="28" height="28" rx="6" fill="#070a12" stroke="#00f0ff" stroke-width="3"/>
+            <text x="50" y="55" fill="#00f0ff" font-size="14" font-weight="900" text-anchor="middle">AI</text>
+            <path d="M 55 20 C 70 18 85 28 85 40 C 88 48 85 58 82 62 C 85 70 78 80 62 80 C 58 80 55 78 55 78" stroke="#8b5cf6" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- خيار 2: الواتساب المباشر -->
+      <a href="https://wa.me/201552207343" target="_blank" class="smart-option-item">
+        <span class="smart-option-label">محادثة واتساب مباشرة</span>
+        <div class="smart-option-icon icon-wa">
+          <i class="fa-brands fa-whatsapp"></i>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- نافذة محادثة الموظف الافتراضي (AI Marketing Agent) -->
+  <div class="ai-chat-window" id="aiChatWindow">
+    <div class="ai-chat-header">
+      <div class="ai-profile">
+        <div class="ai-avatar">
+          <svg style="width: 24px; height: 24px;" viewBox="0 0 100 100" fill="none">
+            <rect x="30" y="30" width="40" height="40" rx="8" stroke="#00f0ff" stroke-width="3"/>
+            <text x="50" y="55" fill="#00f0ff" font-size="16" font-weight="900" text-anchor="middle">AI</text>
+          </svg>
+        </div>
+        <div class="ai-title">
+          <h4>مساعد أحمد الافتراضي</h4>
+          <span><i class="fa-solid fa-circle" style="font-size: 7px;"></i> متصل | خبير تسويق ونمو</span>
+        </div>
+      </div>
+      <button class="close-ai-chat" id="closeAiChatBtn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <!-- سجل الرسائل -->
+    <div class="ai-chat-messages" id="chatMessages">
+      <div class="msg bot">
+        أهلاً بك! أنا المساعد الافتراضي لـ <strong>أحمد</strong>. 🎯<br>
+        أعرف كل شيء عن خدمات أحمد في الـ Media Buying، وتطوير صفحات الهبوط، وبناء الفانلز لزيادة مبيعات نشاطك التجاري. كيف يمكنني مساعدتك اليوم؟
+      </div>
+    </div>
+
+    <!-- أسئلة سريعة مجهزة -->
+    <div class="ai-quick-questions">
+      <div class="quick-chip" onclick="askQuestion('ما هي خدمات أحمد بالتفصيل؟')">ما هي خدمات أحمد؟</div>
+      <div class="quick-chip" onclick="askQuestion('كيف يساعد أحمد المتاجر في زيادة المبيعات؟')">زيادة مبيعات المتاجر؟</div>
+      <div class="quick-chip" onclick="askQuestion('لماذا لا نعتمد فقط على الـ Boost Post؟')">مشكلة Boost Post؟</div>
+      <div class="quick-chip" onclick="askQuestion('كيف أتواصل مع أحمد مباشرة؟')">رقم الواتساب</div>
+    </div>
+
+    <!-- إدخال الرسائل -->
+    <div class="ai-chat-input-area">
+      <input type="text" id="aiUserInput" placeholder="اكتب استفسارك هنا..." onkeypress="handleEnter(event)">
+      <button class="ai-send-btn" onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+  </div>
+
+  <!-- التذييل -->
+  <footer>
+    <div class="footer-box">
+      <h3 style="font-size: 1.8rem; margin-bottom: 0.8rem;">هل أنت جاهز لتطوير أرقام مبيعاتك؟</h3>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">تواصل معي مباشرة لمناقشة أهداف نشاطك التجاري والبدء في بناء منظومتك الإعلانية الناجحة.</p>
+      
+      <div>
+        <a href="tel:01552207343" class="footer-phone">
+          <i class="fa-solid fa-phone"></i> 01552207343
+        </a>
+      </div>
+    </div>
+
+    <p style="font-size: 0.85rem; color: var(--text-muted);">
+      جميع الحقوق محفوظة &copy; <span id="currentYear"></span> أحمد | Media Buying & Sales Growth
+    </p>
+  </footer>
+
+  <!-- السكربت التفاعلي -->
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // فلترة المسارات
+    function filterTrack(category) {
+      const items = document.querySelectorAll('.track-item');
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+      items.forEach(item => {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // تفاعل الزر الذكي (+)
+    const smartHubContainer = document.getElementById('smartHubContainer');
+    const smartHubBtn = document.getElementById('smartHubBtn');
+    const triggerAiChat = document.getElementById('triggerAiChat');
+    const aiChatWindow = document.getElementById('aiChatWindow');
+    const closeAiChatBtn = document.getElementById('closeAiChatBtn');
+
+    // فتح وغلق القائمة بالضغط على (+)
+    smartHubBtn.addEventListener('click', () => {
+      smartHubContainer.classList.toggle('active');
+    });
+
+    // عند الضغط على خيار الـ AI من القائمة
+    triggerAiChat.addEventListener('click', () => {
+      smartHubContainer.classList.remove('active'); // إغلاق قائمة +
+      aiChatWindow.classList.add('active'); // فتح نافذة الشات
+    });
+
+    closeAiChatBtn.addEventListener('click', () => {
+      aiChatWindow.classList.remove('active');
+    });
+
+    // إغلاق قائمة الزر العائم عند الضغط في أي مكان خارجها
+    document.addEventListener('click', (e) => {
+      if (!smartHubContainer.contains(e.target) && !aiChatWindow.contains(e.target)) {
+        smartHubContainer.classList.remove('active');
+      }
+    });
+
+    // قاعدة بيانات ومعلومات أحمد (Knowledge Base)
+    const ahmedData = {
+      services: "أحمد يقدم 4 ركائز رئيسية: \n1. إدارة الحملات الإعلانية الممولة (Media Buying) على فيسبوك، إنستجرام، وتيك توك.\n2. إعداد الاستراتيجيات التسويقية وتحليل المنافسين والجمهور.\n3. إنشاء وتطوير صفحات الهبوط (Landing Pages) والمواقع لرفع معدل التحويل.\n4. صناعة العروض والرسائل الإعلانية المقنعة (Copywriting & Funnel Building).",
+      boostPost: "أحمد لا ينصح بالاعتماد على زر Boost Post فقط! لأن تشغيل الإعلانات بهذه الطريقة عشوائي ويهدر الميزانية. فلسفة أحمد تعتمد على Business → Offer → Audience → Funnel → Creative → Tracking؛ أي دراسة النشاط وبناء مسار يحول الزائر لعميل فعلي مع قياس الـ ROAS والـ CPA بدقة.",
+      ecom: "أحمد يساعد المتاجر من خلال فهم هوية المنتج، صياغة عرض لا يُقاوم، واختبار زوايا إعلانية متعددة مع تجهيز صفحة هبوط سريعة، ثم إعادة الاستهداف (Retargeting) لمضاعفة معدل الشراء وخفض تكلفة الحصول على العميل.",
+      contact: "يمكنك التواصل مباشرة مع أحمد لحجز استشارتك أو بدء حملتك عبر الواتساب أو الاتصال على الرقم: 01552207343.",
+      pricing: "الباقات تنقسم إلى: باقة الـ Media Buyer الشهرية، باقة منظومة النمو الشاملة (Full Funnel)، وجلسات الاستشارة الخاصة لتحليل الحساب الإعلاني. يمكنك التواصل على 01552207343 لاختيار الأنسب لنشاطك."
+    };
+
+    function sendMessage() {
+      const input = document.getElementById('aiUserInput');
+      const text = input.value.trim();
+      if (!text) return;
+
+      appendMessage(text, 'user');
+      input.value = '';
+
+      setTimeout(() => {
+        const reply = generateAiReply(text);
+        appendMessage(reply, 'bot');
+      }, 500);
+    }
+
+    function askQuestion(q) {
+      appendMessage(q, 'user');
+      setTimeout(() => {
+        const reply = generateAiReply(q);
+        appendMessage(reply, 'bot');
+      }, 500);
+    }
+
+    function appendMessage(text, sender) {
+      const chatMessages = document.getElementById('chatMessages');
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `msg ${sender}`;
+      msgDiv.innerHTML = text.replace(/\n/g, '<br>');
+      chatMessages.appendChild(msgDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function handleEnter(e) {
+      if (e.key === 'Enter') sendMessage();
+    }
+
+    // محرك الإجابات الذكي
+    function generateAiReply(query) {
+      const q = query.toLowerCase();
+
+      if (q.includes('خدمات') || q.includes('شغل') || q.includes('بيعمل ايه') || q.includes('مجالات')) {
+        return ahmedData.services;
+      } else if (q.includes('بوست') || q.includes('boost') || q.includes('ترويج')) {
+        return ahmedData.boostPost;
+      } else if (q.includes('مبيعات') || q.includes('متجر') || q.includes('ارباح') || q.includes('عملاء')) {
+        return ahmedData.ecom;
+      } else if (q.includes('تواصل') || q.includes('واتساب') || q.includes('رقم') || q.includes('اتصل') || q.includes('موبايل')) {
+        return ahmedData.contact;
+      } else if (q.includes('سعر') || q.includes('اسعار') || q.includes('باقة') || q.includes('تكلفة')) {
+        return ahmedData.pricing;
+      } else if (q.includes('ام حبيبة') || q.includes('مشروع سابق')) {
+        return "من المشاريع السابقة التي وضع لها أحمد استراتيجية مخصصة مشروع 'أم حبيبة' لتحفيظ القرآن الكريم في منيت سمنود، حيث قام بدراسة الجمهور وتحديد زوايا استهداف دقيقة للسوشيال ميديا دون افتراضات عشوائية.";
+      } else {
+        return "أنا هنا لمساعدتك بخصوص استراتيجيات أحمد التسويقية وإدارة الإعلانات وتطوير صفحات الهبوط. يمكنك السؤال عن خدماته، أسلوب عمله مع المتاجر، أو التواصل معه مباشرة على الواتساب: <strong>01552207343</strong>.";
+      }
+    }
+
+    // مؤقت العرض الترويجي
+    let duration = 48 * 3600 + 15 * 60 + 20;
+    const timerDisplay = document.getElementById('timer');
+    setInterval(() => {
+      duration--;
+      if (duration < 0) duration = 48 * 3600;
+      const hours = Math.floor(duration / 3600);
+      const minutes = Math.floor((duration % 3600) / 60);
+      const seconds = duration % 60;
+      timerDisplay.textContent = 
+        `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    }, 1000);
+  </script>
+</body>
+</html>
