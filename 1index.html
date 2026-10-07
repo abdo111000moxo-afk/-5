@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أحمد | Media Buying & Growth Marketing Hub</title>
+  
+  <!-- خط Cairo وأيقونات Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-main: #070a12;
+      --bg-card: rgba(15, 23, 42, 0.75);
+      --border-color: rgba(0, 240, 255, 0.18);
+      --neon-cyan: #00f0ff;
+      --neon-purple: #8b5cf6;
+      --neon-green: #10b981;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --gradient-accent: linear-gradient(135deg, #00f0ff 0%, #8b5cf6 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      overflow-x: hidden;
+      line-height: 1.6;
+      background-image: 
+        radial-gradient(circle at 10% 15%, rgba(0, 240, 255, 0.08) 0%, transparent 35%),
+        radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 35%);
+      background-attachment: fixed;
+    }
+
+    /* الشريط الترويجي العلوي */
+    .top-bar {
+      background: linear-gradient(90deg, #7928ca, #0070f3);
+      padding: 8px 15px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .countdown-timer {
+      background: rgba(0, 0, 0, 0.35);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+    }
+
+    /* شريط التصفح */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      backdrop-filter: blur(20px);
+      background: rgba(7, 10, 18, 0.88);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.8rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+    
+    .brand-logo-container {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1.5px solid var(--neon-cyan);
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-text h2 {
+      font-size: 1.3rem;
+      font-weight: 900;
+      line-height: 1.1;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .brand-text span {
+      font-size: 0.75rem;
+      color: var(--neon-cyan);
+      letter-spacing: 0.5px;
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.6rem;
+    }
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: var(--neon-cyan);
+    }
+
+    .btn-glow {
+      background: var(--gradient-accent);
+      color: #fff;
+      padding: 0.55rem 1.4rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.35);
+      transition: all 0.3s ease;
+    }
+    .btn-glow:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
+    }
+
+    /* الواجهة الرئيسية */
+    .hero {
+      padding: 4.5rem 1.5rem 3rem;
+      text-align: center;
+      max-width: 950px;
+      margin: 0 auto;
+    }
+    .badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      background: rgba(0, 240, 255, 0.08);
+      border: 1px solid var(--neon-cyan);
+      color: var(--neon-cyan);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      line-height: 1.35;
+      margin-bottom: 1.4rem;
+    }
+    .hero h1 span.gradient {
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 800px;
+      margin: 0 auto 2.2rem;
+    }
+
+    /* إحصائيات */
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.2rem;
+      max-width: 1100px;
+      margin: 1rem auto 4.5rem;
+      padding: 0 1.5rem;
+    }
+    .stat-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      backdrop-filter: blur(14px);
+      padding: 1.6rem 1.2rem;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .stat-number {
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: var(--neon-cyan);
+      margin-bottom: 0.3rem;
+    }
+    .stat-label {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .stat-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* الأقسام */
+    .section {
+      max-width: 1150px;
+      margin: 0 auto 5rem;
+      padding: 0 1.5rem;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-header h2 {
+      font-size: 2.2rem;
+      font-weight: 900;
+      margin-bottom: 0.6rem;
+    }
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* المسارات والخدمات */
+    .tracks-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-muted);
+      padding: 0.7rem 1.8rem;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+    }
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--gradient-accent);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+    }
+
+    .track-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+    .module-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.8rem;
+      position: relative;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    .module-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 240, 255, 0.15);
+      border-color: var(--neon-cyan);
+    }
+    .module-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.2rem;
+    }
+    .module-badge {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: rgba(0, 240, 255, 0.1);
+      color: var(--neon-cyan);
+      font-weight: 700;
+    }
+    .module-card h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 0.7rem;
+    }
+    .module-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+    }
+    .module-features {
+      list-style: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 1rem;
+    }
+    .module-features li {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .module-features li i {
+      color: var(--neon-cyan);
+      font-size: 0.8rem;
+    }
+
+    /* الباقات */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 1.8rem;
+      align-items: center;
+    }
+    .pricing-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2.5rem 1.8rem;
+      position: relative;
+      backdrop-filter: blur(12px);
+      transition: all 0.3s;
+    }
+    .pricing-card.featured {
+      border: 2px solid var(--neon-cyan);
+      box-shadow: 0 0 35px rgba(0, 240, 255, 0.2);
+      transform: scale(1.03);
+    }
+    .popular-tag {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gradient-accent);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 4px 16px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+    .pricing-header h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+    .price-value {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--neon-cyan);
+      margin: 1.2rem 0;
+    }
+    .price-value span {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+    .pricing-list {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+    .pricing-list li {
+      font-size: 0.95rem;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #e2e8f0;
+    }
+    .pricing-list li i {
+      color: var(--neon-green);
+    }
+
+    /* ========================================================
+       زر (+) في أقصى اليمين خالص (Right Edge Dock)
+    ======================================================== */
+    .smart-hub-container {
+      position: fixed;
+      bottom: 30px;
+      right: 0; /* أقصى اليمين خالص */
+      z-index: 10000;
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: flex-end;
+    }
+
+    .smart-hub-btn {
+      width: 55px;
+      height: 58px;
+      border-top-left-radius: 22px;
+      border-bottom-left-radius: 22px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      background: var(--gradient-accent);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-right: none;
+      color: #fff;
+      font-size: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: -5px 0 25px rgba(0, 240, 255, 0.5);
+      transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .smart-hub-btn:hover {
+      width: 64px;
+      box-shadow: -8px 0 32px rgba(0, 240, 255, 0.8);
+    }
+    .smart-hub-container.active .smart-hub-btn {
+      background: #ef4444;
+      box-shadow: -5px 0 25px rgba(239, 68, 68, 0.6);
+    }
+    .smart-hub-container.active .smart-hub-btn i {
+      transform: rotate(135deg);
+      transition: transform 0.3s;
+    }
+
+    /* القائمة السريعة للزر في اليمين */
+    .smart-options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 12px;
+      margin-right: 12px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(30px) scale(0.95);
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+    .smart-hub-container.active .smart-options-list {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .smart-option-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      background: rgba(11, 17, 32, 0.96);
+      border: 1px solid var(--border-color);
+      padding: 7px 14px 7px 8px;
+      border-radius: 35px;
+      backdrop-filter: blur(15px);
+      box-shadow: -5px 8px 25px rgba(0, 0, 0, 0.6);
+      transition: all 0.25s ease;
+    }
+    .smart-option-item:hover {
+      transform: translateX(-6px);
+      border-color: var(--neon-cyan);
+    }
+    .smart-option-label {
+      color: #fff;
+      font-size: 0.86rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .smart-option-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+    .icon-ai {
+      background: #0d1322;
+      border: 1.5px solid var(--neon-cyan);
+      box-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+    }
+    .icon-wa {
+      background: #25d366;
+      box-shadow: 0 0 12px rgba(37, 211, 102, 0.4);
+      font-size: 20px;
+    }
+
+    /* ========================================================
+       نافذة المساعد الذكي تفتح في الشمال خالص (Left Side Window)
+    ======================================================== */
+    .ai-chat-window {
+      position: fixed;
+      bottom: 25px;
+      left: 20px; /* تفتح على الشمال خالص */
+      right: auto;
+      width: 400px;
+      max-width: 90vw;
+      height: 560px;
+      background: #090e1a;
+      border: 1.5px solid var(--neon-cyan);
+      border-radius: 24px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 240, 255, 0.25);
+      display: none;
+      flex-direction: column;
+      z-index: 10001;
+      overflow: hidden;
+      backdrop-filter: blur(20px);
+    }
+    .ai-chat-window.active {
+      display: flex;
+      animation: popUpLeft 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    @keyframes popUpLeft {
+      from { opacity: 0; transform: translateX(-40px) scale(0.92); }
+      to { opacity: 1; transform: translateX(0) scale(1); }
+    }
+
+    .ai-chat-header {
+      background: rgba(15, 23, 42, 0.95);
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .ai-profile {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .ai-avatar {
+      width: 42px;
+      height: 42px;
+      background: #070a12;
+      border: 1.5px solid var(--neon-cyan);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+    }
+    .ai-title h4 {
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .ai-title span {
+      font-size: 0.75rem;
+      color: var(--neon-green);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .close-ai-chat {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .close-ai-chat:hover {
+      color: #ef4444;
+    }
+
+    .ai-chat-messages {
+      flex: 1;
+      padding: 16px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .msg {
+      max-width: 88%;
+      padding: 12px 16px;
+      border-radius: 16px;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    .msg.bot {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(0, 240, 255, 0.15);
+      color: #e2e8f0;
+      align-self: flex-start;
+      border-bottom-right-radius: 4px;
+    }
+    .msg.user {
+      background: var(--gradient-accent);
+      color: #fff;
+      align-self: flex-end;
+      border-bottom-left-radius: 4px;
+      box-shadow: 0 4px 15px rgba(0, 240, 255, 0.25);
+    }
+
+    .ai-quick-questions {
+      padding: 10px 14px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      background: rgba(0, 0, 0, 0.35);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      scrollbar-width: none;
+    }
+    .quick-chip {
+      background: rgba(0, 240, 255, 0.08);
+      border: 1px solid rgba(0, 240, 255, 0.25);
+      color: var(--neon-cyan);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 20px;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .quick-chip:hover {
+      background: var(--neon-cyan);
+      color: #070a12;
+    }
+
+    .ai-chat-input-area {
+      padding: 12px 14px;
+      background: rgba(15, 23, 42, 0.95);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      gap: 8px;
+    }
+    .ai-chat-input-area input {
+      flex: 1;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 25px;
+      padding: 10px 16px;
+      color: #fff;
+      font-size: 0.9rem;
+      outline: none;
+    }
+    .ai-chat-input-area input:focus {
+      border-color: var(--neon-cyan);
+    }
+    .ai-send-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--gradient-accent);
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: transform 0.2s;
+    }
+    .ai-send-btn:hover {
+      transform: scale(1.06);
+    }
+
+    /* التذييل */
+    footer {
+      background: #04070d;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 4rem 1.5rem 2rem;
+      text-align: center;
+    }
+    .footer-box {
+      max-width: 750px;
+      margin: 0 auto 2.5rem;
+    }
+    .footer-phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      padding: 10px 24px;
+      border-radius: 30px;
+      color: var(--neon-cyan);
+      font-size: 1.2rem;
+      font-weight: 800;
+      text-decoration: none;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .hero h1 { font-size: 2.1rem; }
+      .ai-chat-window { width: 92%; left: 4%; bottom: 85px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- شريط الإعلان العلوي -->
+  <div class="top-bar">
+    <span>🔥 استشارات تسويقية وخطط إعلانية شاملة لنمو المبيعات للربع الحالي</span>
+    <div class="countdown-timer">
+      <i class="fa-regular fa-clock"></i> العرض ساري لفترة محدودة: <span id="timer">48:15:20</span>
+    </div>
+  </div>
+
+  <!-- شريط التصفح -->
+  <header>
+    <a href="#" class="brand">
+      <div class="brand-logo-container">
+        <!-- شعار الـ AI المرفق بدقة SVG -->
+        <svg style="width: 32px; height: 32px;" viewBox="0 0 100 100" fill="none">
+          <defs>
+            <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00f0ff"/>
+              <stop offset="100%" stop-color="#8b5cf6"/>
+            </linearGradient>
+          </defs>
+          <path d="M 45 20 H 30 A 10 10 0 0 0 20 30 V 42 H 30 M 20 58 V 70 A 10 10 0 0 0 30 80 H 45 M 20 50 H 32" stroke="url(#aiGrad)" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="32" cy="42" r="3.5" fill="#00f0ff"/>
+          <circle cx="34" cy="50" r="3.5" fill="#00f0ff"/>
+          <rect x="36" y="36" width="28" height="28" rx="6" fill="#070a12" stroke="url(#aiGrad)" stroke-width="2.5"/>
+          <text x="50" y="54" fill="#00f0ff" font-size="13" font-weight="900" text-anchor="middle" font-family="sans-serif">AI</text>
+          <path d="M 55 20 C 70 18 85 28 85 40 C 88 48 85 58 82 62 C 85 70 78 80 62 80 C 58 80 55 78 55 78" stroke="url(#aiGrad)" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <h2>أحمد <i class="fa-solid fa-circle-check" style="color: var(--neon-cyan); font-size: 0.9rem;"></i></h2>
+        <span>MEDIA BUYER & SALES GROWTH</span>
+      </div>
+    </a>
+
+    <nav>
+      <a href="#about">الرؤية</a>
+      <a href="#tracks">منظومة العمل</a>
+      <a href="#packages">الباقات والتعاقد</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="https://wa.me/201552207343" target="_blank" class="btn-glow">
+        <i class="fa-brands fa-whatsapp"></i> احجز استشارتك
+      </a>
+    </div>
+  </header>
+
+  <!-- الواجهة الرئيسية -->
+  <section class="hero" id="about">
+    <div class="badge-tag">
+      <i class="fa-solid fa-bolt"></i> نظام تسويقي مدفوع بالبيانات والذكاء الاصطناعي
+    </div>
+    <h1>تحويل الميزانية الإعلانية من مجرد تكلفة إلى <span class="gradient">محرك نمو وأرباح مستمرة</span></h1>
+    <p>
+      أساعد أصحاب الأنشطة التجارية والمتاجر الإلكترونية على بناء منظومات بيع متكاملة، تبدأ من فهم العميل والمنافسين إلى إدارة الإعلانات الممولة وصفحات الهبوط وصولاً لمضاعفة التحويلات.
+    </p>
+
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a href="#packages" class="btn-glow" style="padding: 0.8rem 2.2rem; font-size: 1rem;">
+        <i class="fa-solid fa-rocket"></i> استكشف أنظمة التعاقد
+      </a>
+      <a href="https://wa.me/201552207343" target="_blank" class="btn-glow" style="background: transparent; border: 1px solid var(--neon-cyan); color: var(--neon-cyan); box-shadow: none;">
+        <i class="fa-solid fa-phone"></i> تواصل معي: 01552207343
+      </a>
+    </div>
+  </section>
+
+  <!-- إحصائيات -->
+  <div class="stats-container">
+    <div class="stat-box">
+      <div class="stat-number">ROAS+</div>
+      <div class="stat-label">عائد استثماري مضاعف</div>
+      <div class="stat-sub">تحسين تكلفة الاكتساب والـ CPA</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">Full Funnel</div>
+      <div class="stat-label">مسار بيعي متكامل</div>
+      <div class="stat-sub">ربط الإعلان بصفحات الهبوط للشراء</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">AI Powered</div>
+      <div class="stat-label">ذكاء اصطناعي تحليلي</div>
+      <div class="stat-sub">عصف ذهني واختبار محتوى سريع</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">100% Data</div>
+      <div class="stat-label">قرارات مبنية على الأرقام</div>
+      <div class="stat-sub">تحليل أداء يومي وتفادي التخمين</div>
+    </div>
+  </div>
+
+  <!-- المسارات التنفيذية -->
+  <section class="section" id="tracks">
+    <div class="section-header">
+      <h2>الدلائل والمنظومات التسويقية</h2>
+      <p>خدمات متخصصة مصممة على هيئة مسارات تنفيذية تضمن لك نتائج واضحة</p>
+    </div>
+
+    <div class="tracks-tabs">
+      <button class="tab-btn active" onclick="filterTrack('all')"><i class="fa-solid fa-layer-group"></i> كل المجالات</button>
+      <button class="tab-btn" onclick="filterTrack('ads')"><i class="fa-solid fa-rectangle-ad"></i> الحملات والإعلانات</button>
+      <button class="tab-btn" onclick="filterTrack('dev')"><i class="fa-solid fa-code"></i> المواقع والـ Funnels</button>
+      <button class="tab-btn" onclick="filterTrack('creative')"><i class="fa-solid fa-pen-ruler"></i> المحتوى والذكاء الاصطناعي</button>
+    </div>
+
+    <div class="track-grid">
+      <div class="module-card track-item" data-category="ads">
+        <div class="module-header">
+          <div class="module-badge">مسار الـ Media Buying</div>
+          <i class="fa-brands fa-facebook fa-xl" style="color: var(--neon-cyan);"></i>
+        </div>
+        <h3>إدارة حملات Meta & TikTok Ads</h3>
+        <p>إدارة متكاملة للحملات الإعلانية على Facebook وInstagram وTikTok مع ضبط البيكسل، التتبع، وهيكلة الميزانية.</p>
+        <ul class="module-features">
+          <li><i class="fa-solid fa-check"></i> تحديد واختبار شرائح الجمهور الدقيقة</li>
+          <li><i class="fa-solid fa-check"></i> تحسين مستمر لمعدلات التحويل (CR)</li>
+          <li><i class="fa-solid fa-check"></i> تقارير وتحليلات أسبوعية واضحة</li>
+        </ul>
+      </div>
+
+      <div class="module-card track-item" data-category="dev">
+        <div class="module-header">
+          <div class="module-badge">مسار التحويل والمواقع</div>
+          <i class="fa-solid fa-desktop fa-xl" style="color: var(--neon-purple);"></i>
+        </div>
+        <h3>صفحات الهبوط والمتاجر (Landing Pages)</h3>
+        <p>بناء وتطوير صفحات هبوط سريعة الاستجابة ومواقع تجارية مصممة ومكتوبة سيكولوجياً لتحويل الزائر إلى مشترٍ مباشر.</p>
+        <ul class="module-features">
+          <li><i class="fa-solid fa-check"></i> تصميم متوافق 100% مع شاشات الهواتف</li>
+          <li><i class="fa-solid fa-check"></i> ربط مباشر بأنظمة الدفع والواتساب</li>
+          <li><i class="fa-solid fa-check"></i> سرعة تحميل فائقة وتتبع للزوار</li>
+        </ul>
+      </div>
+
+      <div class="module-card track-item" data-category="creative">
+        <div class="module-header">
+          <div class="module-badge">مسار الـ Creative & AI</div>
+          <i class="fa-solid fa-brain fa-xl" style="color: var(--neon-cyan);"></i>
+        </div>
+        <h3>صناعة المحتوى وكتابة الإعلانات (Copywriting)</h3>
+        <p>صياغة رسائل تسويقية موجهة ومبتكرة باستخدام أدوات الذكاء الاصطناعي مع دراسة سلوك المستهلك والمنافسين.</p>
+        <ul class="module-features">
+          <li><i class="fa-solid fa-check"></i> ابتكار زوايا إعلانية غير تقليدية (Hooks & Angles)</li>
+          <li><i class="fa-solid fa-check"></i> خطط نشر تسويقية لحسابات السوشيال ميديا</li>
+          <li><i class="fa-solid fa-check"></i> عروض تسويقية لا تُقاوم (Irresistible Offers)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- باقات التعاقد -->
+  <section class="section" id="packages">
+    <div class="section-header">
+      <h2>باقات التعاقد والنمو</h2>
+      <p>اختر النظام الأنسب لطبيعة نشاطك التجاري لبدء الانطلاق فوراً</p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <h3>باقة الإعلانات (Media Buyer)</h3>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">للأنشطة التي تمتلك متجر وتريد إدارة إعلانية احترافية</p>
+        </div>
+        <div class="price-value">تعاقد شهري <span>/ حملات</span></div>
+        <ul class="pricing-list">
+          <li><i class="fa-solid fa-circle-check"></i> إدارة إعلانات Meta و TikTok</li>
+          <li><i class="fa-solid fa-circle-check"></i> إعداد واختبار الـ Creatives</li>
+          <li><i class="fa-solid fa-circle-check"></i> ضبط أحداث التتبع والبيكسل</li>
+          <li><i class="fa-solid fa-circle-check"></i> تقارير أداء دورية بالأرقام</li>
+        </ul>
+        <a href="https://wa.me/201552207343?text=مرحباً%20أحمد،%20أريد%20الاستفسار%20عن%20باقة%20الـ%20Media%20Buyer" target="_blank" class="btn-glow" style="width: 100%; justify-content: center;">
+          طلب الباقة عبر واتساب
+        </a>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="popular-tag">الأكثر طلباً ونمواً 🔥</div>
+        <div class="pricing-header">
+          <h3>باقة منظومة النمو (Full Funnel)</h3>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">الحل الشامل من البرمجة والتسويق حتى الإغلاق</p>
+        </div>
+        <div class="price-value">شامل متكامل <span>/ نمو</span></div>
+        <ul class="pricing-list">
+          <li><i class="fa-solid fa-circle-check"></i> تصميم وبرمجة Landing Page فائقة السرعة</li>
+          <li><i class="fa-solid fa-circle-check"></i> كتابة المحتوى والـ Copywriting التسويقي</li>
+          <li><i class="fa-solid fa-circle-check"></i> إدارة الحملات وتوسيع الميزانية (Scaling)</li>
+          <li><i class="fa-solid fa-circle-check"></i> دعم فني ومتابعة مستمرة عبر واتساب</li>
+        </ul>
+        <a href="https://wa.me/201552207343?text=مرحباً%20أحمد،%20أريد%20الاستفسار%20عن%20باقة%20منظومة%20النمو%20Full%20Funnel" target="_blank" class="btn-glow" style="width: 100%; justify-content: center;">
+          احجز مكانك الآن
+        </a>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <h3>استشارة واستراتيجية خاصة</h3>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">جلسة خاصة لتحليل حسابك الإعلاني وموقعك ورسم الخطة</p>
+        </div>
+        <div class="price-value">جلسة استشارية <span>/ تحليل</span></div>
+        <ul class="pricing-list">
+          <li><i class="fa-solid fa-circle-check"></i> مراجعة الحملات الحالية وتحديد الأخطاء</li>
+          <li><i class="fa-solid fa-circle-check"></i> تحليل تجربة المستخدم في متجرك</li>
+          <li><i class="fa-solid fa-circle-check"></i> وضع استراتيجية إعلانية للـ 3 أشهر القادمة</li>
+          <li><i class="fa-solid fa-circle-check"></i> خطة عمل مكتوبة وقابلة للتطبيق</li>
+        </ul>
+        <a href="https://wa.me/201552207343?text=مرحباً%20أحمد،%20أريد%20حجز%20جلسة%20استشارة%20تسويقية%20خاصة" target="_blank" class="btn-glow" style="width: 100%; justify-content: center; background: rgba(255,255,255,0.08); border: 1px solid var(--neon-cyan); box-shadow: none;">
+          حجز جلسة استشارة
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       زر (+) في اليمين خالص (Right Side)
+  ======================================================== -->
+  <div class="smart-hub-container" id="smartHubContainer">
+    <button class="smart-hub-btn" id="smartHubBtn" title="خيارات التواصل والذكاء الاصطناعي">
+      <i class="fa-solid fa-plus"></i>
+    </button>
+
+    <div class="smart-options-list">
+      <!-- خيار المساعد الافتراضي -->
+      <div class="smart-option-item" id="triggerAiChat">
+        <span class="smart-option-label">تحدث مع عقل أحمد الافتراضي (AI)</span>
+        <div class="smart-option-icon icon-ai">
+          <svg style="width: 24px; height: 24px;" viewBox="0 0 100 100" fill="none">
+            <path d="M 45 20 H 30 A 10 10 0 0 0 20 30 V 42 H 30 M 20 58 V 70 A 10 10 0 0 0 30 80 H 45 M 20 50 H 32" stroke="#00f0ff" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="32" cy="42" r="4" fill="#00f0ff"/>
+            <rect x="36" y="36" width="28" height="28" rx="6" fill="#070a12" stroke="#00f0ff" stroke-width="3"/>
+            <text x="50" y="55" fill="#00f0ff" font-size="14" font-weight="900" text-anchor="middle">AI</text>
+            <path d="M 55 20 C 70 18 85 28 85 40 C 88 48 85 58 82 62 C 85 70 78 80 62 80 C 58 80 55 78 55 78" stroke="#8b5cf6" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- خيار الواتساب المباشر -->
+      <a href="https://wa.me/201552207343" target="_blank" class="smart-option-item">
+        <span class="smart-option-label">واتساب أحمد المباشر</span>
+        <div class="smart-option-icon icon-wa">
+          <i class="fa-brands fa-whatsapp"></i>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       نافذة المحادثة الذكية تفتح في الشمال خالص (Left Side Window)
+  ======================================================== -->
+  <div class="ai-chat-window" id="aiChatWindow">
+    <div class="ai-chat-header">
+      <div class="ai-profile">
+        <div class="ai-avatar">
+          <svg style="width: 26px; height: 26px;" viewBox="0 0 100 100" fill="none">
+            <path d="M 45 20 H 30 A 10 10 0 0 0 20 30 V 42 H 30 M 20 58 V 70 A 10 10 0 0 0 30 80 H 45" stroke="#00f0ff" stroke-width="4"/>
+            <rect x="36" y="36" width="28" height="28" rx="6" fill="#070a12" stroke="#00f0ff" stroke-width="3"/>
+            <text x="50" y="55" fill="#00f0ff" font-size="14" font-weight="900" text-anchor="middle">AI</text>
+            <path d="M 55 20 C 70 18 85 28 85 40 C 88 48 85 58 82 62 C 85 70 78 80 62 80" stroke="#8b5cf6" stroke-width="4"/>
+          </svg>
+        </div>
+        <div class="ai-title">
+          <h4>مساعد أحمد التحليلي</h4>
+          <span><i class="fa-solid fa-circle" style="font-size: 7px;"></i> متصل | فاهم كل تفصيلة في التسويق</span>
+        </div>
+      </div>
+      <button class="close-ai-chat" id="closeAiChatBtn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <!-- سجل الرسائل -->
+    <div class="ai-chat-messages" id="chatMessages">
+      <div class="msg bot">
+        أهلاً بك! أنا المساعد الافتراضي والتحليلي لـ <strong>أحمد</strong>. 🎯<br><br>
+        أنا هنا ممثلٌ عن أحمد وفاهم تفكيره التسويقي بالكامل: من تحليل الأنشطة التجارية والمنافسين، وإدارة إعلانات Meta وTikTok، وحتى بناء صفحات الهبوط والـ Funnels وخفض تكلفة العميل (CPA).<br><br>
+        تفضل، ما هو استفسارك أو مشكلتك الإعلانية؟
+      </div>
+    </div>
+
+    <!-- أسئلة سريعة ذكية -->
+    <div class="ai-quick-questions">
+      <div class="quick-chip" onclick="askQuestion('كيف يحلل أحمد النشاط التجاري قبل الإعلانات؟')">تحليل النشاط قبل الإعلان</div>
+      <div class="quick-chip" onclick="askQuestion('ما مشكلة الـ Boost Post في رأي أحمد؟')">ليه بلاش Boost Post؟</div>
+      <div class="quick-chip" onclick="askQuestion('كيف يساعد أحمد المتاجر في خفض CPA وزيادة ROAS؟')">خفض تكلفة العميل CPA</div>
+      <div class="quick-chip" onclick="askQuestion('ما هي استراتيجية مشروع أم حبيبة السابقة؟')">مشروع أم حبيبة السابق</div>
+      <div class="quick-chip" onclick="askQuestion('كيف أتواصل مع أحمد على الواتساب؟')">الواتساب: 01552207343</div>
+    </div>
+
+    <!-- إدخال الرسائل -->
+    <div class="ai-chat-input-area">
+      <input type="text" id="aiUserInput" placeholder="اسأل عن أي تفصيلة تسويقية أو خدمة..." onkeypress="handleEnter(event)">
+      <button class="ai-send-btn" onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+  </div>
+
+  <!-- التذييل -->
+  <footer>
+    <div class="footer-box">
+      <h3 style="font-size: 1.8rem; margin-bottom: 0.8rem;">هل أنت جاهز لتطوير أرقام مبيعاتك؟</h3>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">تواصل معي مباشرة لمناقشة أهداف نشاطك التجاري والبدء في بناء منظومتك الإعلانية الناجحة.</p>
+      
+      <div>
+        <a href="tel:01552207343" class="footer-phone">
+          <i class="fa-solid fa-phone"></i> 01552207343
+        </a>
+      </div>
+    </div>
+
+    <p style="font-size: 0.85rem; color: var(--text-muted);">
+      جميع الحقوق محفوظة &copy; <span id="currentYear"></span> أحمد | Media Buying & Sales Growth
+    </p>
+  </footer>
+
+  <!-- السكربت التفاعلي ومحرك التفكير الذكي -->
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // فلترة المسارات
+    function filterTrack(category) {
+      const items = document.querySelectorAll('.track-item');
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+      items.forEach(item => {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // تفاعل الزر في اليمين مع فتح الشات في الشمال
+    const smartHubContainer = document.getElementById('smartHubContainer');
+    const smartHubBtn = document.getElementById('smartHubBtn');
+    const triggerAiChat = document.getElementById('triggerAiChat');
+    const aiChatWindow = document.getElementById('aiChatWindow');
+    const closeAiChatBtn = document.getElementById('closeAiChatBtn');
+
+    smartHubBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      smartHubContainer.classList.toggle('active');
+    });
+
+    triggerAiChat.addEventListener('click', (e) => {
+      e.stopPropagation();
+      smartHubContainer.classList.remove('active');
+      aiChatWindow.classList.add('active'); // يفتح في الشمال
+    });
+
+    closeAiChatBtn.addEventListener('click', () => {
+      aiChatWindow.classList.remove('active');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!smartHubContainer.contains(e.target) && !aiChatWindow.contains(e.target)) {
+        smartHubContainer.classList.remove('active');
+      }
+    });
+
+    // ========================================================
+    // عقل المساعد الافتراضي الموسع (الـ Deep Knowledge Engine)
+    // ========================================================
+    function generateDeepAiReply(query) {
+      const q = query.toLowerCase();
+
+      // 1. فلسفة أحمد في تحليل النشاط واستراتيجية العمل
+      if (q.includes('تحليل') || q.includes('استراتيجية') || q.includes('تفكير') || q.includes('منهجية') || q.includes('خطوات')) {
+        return "🧠 <strong>فلسفة أحمد التسويقية:</strong><br>" +
+               "أحمد لا يتعامل مع التسويق كـ 'اعمل إعلان وخلاص'! بل يفكر في المسار الكامل:<br>" +
+               "<code>Business ➔ Offer ➔ Audience ➔ Funnel ➔ Creative ➔ Ads ➔ Landing Page ➔ Conversion ➔ Retargeting ➔ Optimization</code>.<br><br>" +
+               "قبل ضخ أي جنيه، يدرس أحمد النشاط، الميزة التنافسية، المنافسين، وسلوك العميل لتقديم عرض لا يُقاوم (Irresistible Offer).";
+      }
+
+      // 2. مشكلة الـ Boost Post والترويج العشوائي
+      if (q.includes('بوست') || q.includes('boost') || q.includes('ترويج') || q.includes('عشوائي')) {
+        return "⚠️ <strong>رأي أحمد في زر Boost Post:</strong><br>" +
+               "زر Boost Post هو أكبر فخ لإهدار الميزانية! لأنه يستهدف تفاعلات وهمية (Likes/Comments) دون بناء Funnel حقيقي أو تتبع دقيق للمبيعات.<br><br>" +
+               "أحمد يدير الحملات عبر الـ Ads Manager بهيكلة احترافية، اختبار للـ Creatives، ضبط البيكسل، وإعادة الاستهداف لتحويل الزوار لمبيعات حقيقية.";
+      }
+
+      // 3. خفض تكلفة العميل (CPA) ورفع الـ ROAS
+      if (q.includes('cpa') || q.includes('roas') || q.includes('تكلفة') || q.includes('مبيعات') || q.includes('متجر') || q.includes('ارباح') || q.includes('نتائج')) {
+        return "📈 <strong>كيف يرفع أحمد المبيعات ويقلل التكلفة (CPA)؟</strong><br>" +
+               "1. <strong>اختبار زوايا إعلانية (Creative Testing):</strong> صياغة Hooks وCreatives موجهة لمشاكل العميل.<br>" +
+               "2. <strong>تطوير صفحات الهبوط (Landing Pages):</strong> تسريع التحميل وكتابة محتوى يقنع الزائر فوراً بالشراء.<br>" +
+               "3. <strong>إعادة الاستهداف (Retargeting):</strong> استرجاع العملاء الذين لم يشتروا في المرة الأولى لرفع الـ ROAS إلى أقصى حد.<br>" +
+               "4. مراقبة البيانات اليومية واستبعاد الإعلانات غير المجدية وتكبير الميزانية (Scaling) على الرابحة فقط.";
+      }
+
+      // 4. مشروع أم حبيبة السابق
+      if (q.includes('ام حبيبة') || q.includes('مشروع سابق') || q.includes('سابق') || q.includes('قصة')) {
+        return "📚 <strong>مشروع سابق لأحمد (مشروع أم حبيبة):</strong><br>" +
+               "هو مشروع لتحفيظ وتعليم القرآن الكريم للنساء والفتيات في منطقة 'منيت سمنود' بسعر اشتراك رمزي (100).<br>" +
+               "قام أحمد ببناء استراتيجية تعتمد على الاستهداف المناطقي الدقيق، بدون افتراضات عشوائية، وركز على صناعة محتوى يبني الثقة ويخاطب الأمهات والفتيات مباشرة، مما أظهر كفاءة الحملة دون هدر في الميزانية.";
+      }
+
+      // 5. صفحات الهبوط والبرمجة (Landing Pages & Web Development)
+      if (q.includes('صفحة هبوط') || q.includes('landing') || q.includes('موقع') || q.includes('برمجة') || q.includes('متجر')) {
+        return "💻 <strong>صفحات الهبوط وتطوير المواقع مع أحمد:</strong><br>" +
+               "أحمد لا يقدم تسويقاً منفصلاً، بل يدمج الـ Media Buying مع برمجة وتطوير Landing Pages فائقة السرعة ومتوافقة 100% مع الهواتف، مجهزة بزر واتساب ونماذج طلب مباشرة، ومربوطة بأدوات التتبع لقياس كل نقرة وتحويل الزوار لعملاء فعليين.";
+      }
+
+      // 6. باقات التعاقد والأسعار
+      if (q.includes('سعر') || q.includes('اسعار') || q.includes('باقة') || q.includes('تكلفة') || q.includes('اشتراك')) {
+        return "💼 <strong>أنظمة وباقات العمل مع أحمد:</strong><br>" +
+               "1. <strong>باقة الـ Media Buying:</strong> إدارة حملات فيسبوك، إنستجرام، وتيك توك مع تقارير أداء ومراقبة يومية.<br>" +
+               "2. <strong>باقة النمو الشامل (Full Funnel) 🔥 الأكثر طلباً:</strong> تشمل إدارة الإعلانات + تصميم وتطوير صفحة الهبوط + كتابة الـ Copywriting والتوسع.<br>" +
+               "3. <strong>جلسة استشارة خاصة:</strong> لتحليل حسابك الإعلاني ومتجرك وتحديد الأخطاء.<br><br>" +
+               "تواصل مباشرة مع أحمد على الواتساب <strong>01552207343</strong> لتحديد الباقة الأنسب لحجم نشاطك.";
+      }
+
+      // 7. التواصل المباشر ورقم الواتساب
+      if (q.includes('واتساب') || q.includes('تواصل') || q.includes('رقم') || q.includes('موبايل') || q.includes('اتصال') || q.includes('حجز')) {
+        return "📞 <strong>تواصل مع أحمد مباشرة الآن:</strong><br>" +
+               "رقم الهاتف والواتساب المباشر: <a href='https://wa.me/201552207343' target='_blank' style='color: var(--neon-cyan); font-weight: 800;'>01552207343</a>.<br>" +
+               "يمكنك مراسلته لمناقشة أرقام نشاطك وحجز جلستك الاستشارية فوراً!";
+      }
+
+      // الإجابة الشاملة التحليلية لأي سؤال آخر
+      return "💡 <strong>تحليل واستشارة سريعة:</strong><br>" +
+             "أحمد يركز على مساعدة أصحاب الأنشطة والمتاجر في بناء نظام نمو واضح (Sales Growth) قائم على الأرقام واختبار الإعلانات وتطوير صفحات الهبوط.<br><br>" +
+             "هل تحب أن نتحدث عن: <strong>(1) إدارة إعلاناتك</strong>، <strong>(2) بناء صفحة هبوط لمنتجك</strong>، أو <strong>(3) التواصل مباشرة مع أحمد على 01552207343</strong>؟";
+    }
+
+    function sendMessage() {
+      const input = document.getElementById('aiUserInput');
+      const text = input.value.trim();
+      if (!text) return;
+
+      appendMessage(text, 'user');
+      input.value = '';
+
+      // تأثير كتابة وتفكير الذكاء الاصطناعي
+      setTimeout(() => {
+        const reply = generateDeepAiReply(text);
+        appendMessage(reply, 'bot');
+      }, 400);
+    }
+
+    function askQuestion(q) {
+      appendMessage(q, 'user');
+      setTimeout(() => {
+        const reply = generateDeepAiReply(q);
+        appendMessage(reply, 'bot');
+      }, 400);
+    }
+
+    function appendMessage(text, sender) {
+      const chatMessages = document.getElementById('chatMessages');
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `msg ${sender}`;
+      msgDiv.innerHTML = text;
+      chatMessages.appendChild(msgDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function handleEnter(e) {
+      if (e.key === 'Enter') sendMessage();
+    }
+
+    // المؤقت
+    let duration = 48 * 3600 + 15 * 60 + 20;
+    const timerDisplay = document.getElementById('timer');
+    setInterval(() => {
+      duration--;
+      if (duration < 0) duration = 48 * 3600;
+      const hours = Math.floor(duration / 3600);
+      const minutes = Math.floor((duration % 3600) / 60);
+      const seconds = duration % 60;
+      timerDisplay.textContent = 
+        `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    }, 1000);
+  </script>
+</body>
+</html>
