@@ -147,7 +147,7 @@
       box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
     }
 
-    /* الواجهة التقديمية (Hero Section) */
+    /* الواجهة الرئيسية */
     .hero {
       padding: 4.5rem 1.5rem 3rem;
       text-align: center;
@@ -185,7 +185,7 @@
       margin: 0 auto 2.2rem;
     }
 
-    /* العدادات والإحصائيات */
+    /* إحصائيات */
     .stats-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -220,7 +220,7 @@
       margin-top: 4px;
     }
 
-    /* الأقسام العامة */
+    /* الأقسام */
     .section {
       max-width: 1150px;
       margin: 0 auto 5rem;
@@ -242,7 +242,7 @@
       margin: 0 auto;
     }
 
-    /* نظام المسارات (Tracks & Modules) */
+    /* المسارات والخدمات */
     .tracks-tabs {
       display: flex;
       justify-content: center;
@@ -332,7 +332,7 @@
       font-size: 0.8rem;
     }
 
-    /* باقات الاشتراكات */
+    /* الباقات */
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
@@ -399,61 +399,67 @@
     }
 
     /* ========================================================
-       الزر العائم الذكي (+) مع قائمة الخيارات التفاعلية
+       زر (+) في أقصى اليمين خالص (Right Edge Dock)
     ======================================================== */
     .smart-hub-container {
       position: fixed;
       bottom: 30px;
-      right: 30px;
+      right: 0; /* أقصى اليمين خالص */
       z-index: 10000;
       display: flex;
       flex-direction: column-reverse;
       align-items: flex-end;
-      gap: 14px;
     }
 
-    /* الزر الرئيسي (+) المتوهج */
     .smart-hub-btn {
-      width: 62px;
-      height: 62px;
-      border-radius: 50%;
+      width: 55px;
+      height: 58px;
+      border-top-left-radius: 22px;
+      border-bottom-left-radius: 22px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
       background: var(--gradient-accent);
-      border: none;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-right: none;
       color: #fff;
-      font-size: 28px;
+      font-size: 26px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      box-shadow: 0 0 25px rgba(0, 240, 255, 0.5);
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: -5px 0 25px rgba(0, 240, 255, 0.5);
+      transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     .smart-hub-btn:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 35px rgba(0, 240, 255, 0.8);
+      width: 64px;
+      box-shadow: -8px 0 32px rgba(0, 240, 255, 0.8);
     }
-    /* دوران الزر ليصبح علامة X عند الفتح */
     .smart-hub-container.active .smart-hub-btn {
-      transform: rotate(135deg);
       background: #ef4444;
-      box-shadow: 0 0 25px rgba(239, 68, 68, 0.6);
+      box-shadow: -5px 0 25px rgba(239, 68, 68, 0.6);
+    }
+    .smart-hub-container.active .smart-hub-btn i {
+      transform: rotate(135deg);
+      transition: transform 0.3s;
     }
 
-    /* قائمة الخيارات المنبثقة */
+    /* القائمة السريعة للزر في اليمين */
     .smart-options-list {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
+      margin-bottom: 12px;
+      margin-right: 12px;
       opacity: 0;
       visibility: hidden;
-      transform: translateY(20px) scale(0.9);
+      transform: translateX(30px) scale(0.95);
       transition: all 0.3s ease;
       pointer-events: none;
     }
     .smart-hub-container.active .smart-options-list {
       opacity: 1;
       visibility: visible;
-      transform: translateY(0) scale(1);
+      transform: translateX(0) scale(1);
       pointer-events: auto;
     }
 
@@ -463,35 +469,33 @@
       gap: 12px;
       cursor: pointer;
       text-decoration: none;
-      background: rgba(15, 23, 42, 0.95);
+      background: rgba(11, 17, 32, 0.96);
       border: 1px solid var(--border-color);
-      padding: 6px 14px 6px 8px;
+      padding: 7px 14px 7px 8px;
       border-radius: 35px;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-      transition: all 0.3s ease;
+      backdrop-filter: blur(15px);
+      box-shadow: -5px 8px 25px rgba(0, 0, 0, 0.6);
+      transition: all 0.25s ease;
     }
     .smart-option-item:hover {
-      transform: translateX(-5px);
+      transform: translateX(-6px);
       border-color: var(--neon-cyan);
-      box-shadow: 0 10px 30px rgba(0, 240, 255, 0.25);
     }
     .smart-option-label {
       color: #fff;
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       font-weight: 700;
       white-space: nowrap;
     }
     .smart-option-icon {
-      width: 44px;
-      height: 44px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #fff;
     }
-
     .icon-ai {
       background: #0d1322;
       border: 1.5px solid var(--neon-cyan);
@@ -500,39 +504,43 @@
     .icon-wa {
       background: #25d366;
       box-shadow: 0 0 12px rgba(37, 211, 102, 0.4);
-      font-size: 22px;
+      font-size: 20px;
     }
 
-    /* نافذة المحادثة للموظف الافتراضي */
+    /* ========================================================
+       نافذة المساعد الذكي تفتح في الشمال خالص (Left Side Window)
+    ======================================================== */
     .ai-chat-window {
       position: fixed;
-      bottom: 105px;
-      right: 30px;
-      width: 380px;
-      height: 520px;
-      background: #0b1120;
-      border: 1px solid var(--neon-cyan);
-      border-radius: 20px;
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 240, 255, 0.2);
+      bottom: 25px;
+      left: 20px; /* تفتح على الشمال خالص */
+      right: auto;
+      width: 400px;
+      max-width: 90vw;
+      height: 560px;
+      background: #090e1a;
+      border: 1.5px solid var(--neon-cyan);
+      border-radius: 24px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 240, 255, 0.25);
       display: none;
       flex-direction: column;
       z-index: 10001;
       overflow: hidden;
-      backdrop-filter: blur(15px);
+      backdrop-filter: blur(20px);
     }
     .ai-chat-window.active {
       display: flex;
-      animation: popUp 0.3s ease forwards;
+      animation: popUpLeft 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
     }
 
-    @keyframes popUp {
-      from { opacity: 0; transform: translateY(20px) scale(0.95); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
+    @keyframes popUpLeft {
+      from { opacity: 0; transform: translateX(-40px) scale(0.92); }
+      to { opacity: 1; transform: translateX(0) scale(1); }
     }
 
     .ai-chat-header {
       background: rgba(15, 23, 42, 0.95);
-      padding: 12px 16px;
+      padding: 14px 18px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       display: flex;
       align-items: center;
@@ -541,20 +549,21 @@
     .ai-profile {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
     .ai-avatar {
-      width: 38px;
-      height: 38px;
+      width: 42px;
+      height: 42px;
       background: #070a12;
-      border: 1px solid var(--neon-cyan);
-      border-radius: 10px;
+      border: 1.5px solid var(--neon-cyan);
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
     }
     .ai-title h4 {
-      font-size: 0.95rem;
+      font-size: 0.98rem;
       font-weight: 800;
       color: #fff;
     }
@@ -569,45 +578,50 @@
       background: none;
       border: none;
       color: var(--text-muted);
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       cursor: pointer;
+      transition: color 0.2s;
+    }
+    .close-ai-chat:hover {
+      color: #ef4444;
     }
 
     .ai-chat-messages {
       flex: 1;
-      padding: 15px;
+      padding: 16px;
       overflow-y: auto;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 14px;
     }
     .msg {
-      max-width: 85%;
-      padding: 10px 14px;
-      border-radius: 14px;
-      font-size: 0.88rem;
-      line-height: 1.5;
+      max-width: 88%;
+      padding: 12px 16px;
+      border-radius: 16px;
+      font-size: 0.9rem;
+      line-height: 1.6;
     }
     .msg.bot {
       background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(0, 240, 255, 0.15);
       color: #e2e8f0;
       align-self: flex-start;
-      border-bottom-right-radius: 2px;
+      border-bottom-right-radius: 4px;
     }
     .msg.user {
       background: var(--gradient-accent);
       color: #fff;
       align-self: flex-end;
-      border-bottom-left-radius: 2px;
+      border-bottom-left-radius: 4px;
+      box-shadow: 0 4px 15px rgba(0, 240, 255, 0.25);
     }
 
     .ai-quick-questions {
-      padding: 8px 12px;
+      padding: 10px 14px;
       display: flex;
-      gap: 6px;
+      gap: 8px;
       overflow-x: auto;
-      background: rgba(0, 0, 0, 0.25);
+      background: rgba(0, 0, 0, 0.35);
       border-top: 1px solid rgba(255, 255, 255, 0.05);
       scrollbar-width: none;
     }
@@ -615,8 +629,9 @@
       background: rgba(0, 240, 255, 0.08);
       border: 1px solid rgba(0, 240, 255, 0.25);
       color: var(--neon-cyan);
-      font-size: 0.75rem;
-      padding: 5px 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 6px 12px;
       border-radius: 20px;
       white-space: nowrap;
       cursor: pointer;
@@ -628,7 +643,7 @@
     }
 
     .ai-chat-input-area {
-      padding: 10px 12px;
+      padding: 12px 14px;
       background: rgba(15, 23, 42, 0.95);
       border-top: 1px solid rgba(255, 255, 255, 0.08);
       display: flex;
@@ -639,17 +654,17 @@
       background: rgba(0, 0, 0, 0.4);
       border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 25px;
-      padding: 8px 14px;
+      padding: 10px 16px;
       color: #fff;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       outline: none;
     }
     .ai-chat-input-area input:focus {
       border-color: var(--neon-cyan);
     }
     .ai-send-btn {
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       background: var(--gradient-accent);
       border: none;
@@ -658,6 +673,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 1rem;
+      transition: transform 0.2s;
+    }
+    .ai-send-btn:hover {
+      transform: scale(1.06);
     }
 
     /* التذييل */
@@ -689,8 +709,7 @@
     @media (max-width: 768px) {
       nav { display: none; }
       .hero h1 { font-size: 2.1rem; }
-      .ai-chat-window { width: 92%; right: 4%; bottom: 95px; }
-      .smart-hub-container { bottom: 20px; right: 20px; }
+      .ai-chat-window { width: 92%; left: 4%; bottom: 85px; }
     }
   </style>
 </head>
@@ -708,7 +727,7 @@
   <header>
     <a href="#" class="brand">
       <div class="brand-logo-container">
-        <!-- شعار الـ AI المرفق -->
+        <!-- شعار الـ AI المرفق بدقة SVG -->
         <svg style="width: 32px; height: 32px;" viewBox="0 0 100 100" fill="none">
           <defs>
             <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -763,7 +782,7 @@
     </div>
   </section>
 
-  <!-- عدادات الإنجاز -->
+  <!-- إحصائيات -->
   <div class="stats-container">
     <div class="stat-box">
       <div class="stat-number">ROAS+</div>
@@ -909,22 +928,19 @@
   </section>
 
   <!-- ========================================================
-       الزر العائم الذكي (+) الجامع للواتساب والذكاء الاصطناعي
+       زر (+) في اليمين خالص (Right Side)
   ======================================================== -->
   <div class="smart-hub-container" id="smartHubContainer">
-    <!-- الزر الرئيسي (+) -->
-    <button class="smart-hub-btn" id="smartHubBtn" title="تواصل أو تحدث مع الذكاء الاصطناعي">
+    <button class="smart-hub-btn" id="smartHubBtn" title="خيارات التواصل والذكاء الاصطناعي">
       <i class="fa-solid fa-plus"></i>
     </button>
 
-    <!-- الخيارات المنبثقة الأنيقة -->
     <div class="smart-options-list">
-      <!-- خيار 1: الموظف الافتراضي AI بالشعار -->
+      <!-- خيار المساعد الافتراضي -->
       <div class="smart-option-item" id="triggerAiChat">
-        <span class="smart-option-label">تحدث مع موظف أحمد الذكي</span>
+        <span class="smart-option-label">تحدث مع عقل أحمد الافتراضي (AI)</span>
         <div class="smart-option-icon icon-ai">
-          <!-- الشعار داخل الأيقونة -->
-          <svg style="width: 26px; height: 26px;" viewBox="0 0 100 100" fill="none">
+          <svg style="width: 24px; height: 24px;" viewBox="0 0 100 100" fill="none">
             <path d="M 45 20 H 30 A 10 10 0 0 0 20 30 V 42 H 30 M 20 58 V 70 A 10 10 0 0 0 30 80 H 45 M 20 50 H 32" stroke="#00f0ff" stroke-width="4" stroke-linecap="round"/>
             <circle cx="32" cy="42" r="4" fill="#00f0ff"/>
             <rect x="36" y="36" width="28" height="28" rx="6" fill="#070a12" stroke="#00f0ff" stroke-width="3"/>
@@ -934,9 +950,9 @@
         </div>
       </div>
 
-      <!-- خيار 2: الواتساب المباشر -->
+      <!-- خيار الواتساب المباشر -->
       <a href="https://wa.me/201552207343" target="_blank" class="smart-option-item">
-        <span class="smart-option-label">محادثة واتساب مباشرة</span>
+        <span class="smart-option-label">واتساب أحمد المباشر</span>
         <div class="smart-option-icon icon-wa">
           <i class="fa-brands fa-whatsapp"></i>
         </div>
@@ -944,19 +960,23 @@
     </div>
   </div>
 
-  <!-- نافذة محادثة الموظف الافتراضي (AI Marketing Agent) -->
+  <!-- ========================================================
+       نافذة المحادثة الذكية تفتح في الشمال خالص (Left Side Window)
+  ======================================================== -->
   <div class="ai-chat-window" id="aiChatWindow">
     <div class="ai-chat-header">
       <div class="ai-profile">
         <div class="ai-avatar">
-          <svg style="width: 24px; height: 24px;" viewBox="0 0 100 100" fill="none">
-            <rect x="30" y="30" width="40" height="40" rx="8" stroke="#00f0ff" stroke-width="3"/>
-            <text x="50" y="55" fill="#00f0ff" font-size="16" font-weight="900" text-anchor="middle">AI</text>
+          <svg style="width: 26px; height: 26px;" viewBox="0 0 100 100" fill="none">
+            <path d="M 45 20 H 30 A 10 10 0 0 0 20 30 V 42 H 30 M 20 58 V 70 A 10 10 0 0 0 30 80 H 45" stroke="#00f0ff" stroke-width="4"/>
+            <rect x="36" y="36" width="28" height="28" rx="6" fill="#070a12" stroke="#00f0ff" stroke-width="3"/>
+            <text x="50" y="55" fill="#00f0ff" font-size="14" font-weight="900" text-anchor="middle">AI</text>
+            <path d="M 55 20 C 70 18 85 28 85 40 C 88 48 85 58 82 62 C 85 70 78 80 62 80" stroke="#8b5cf6" stroke-width="4"/>
           </svg>
         </div>
         <div class="ai-title">
-          <h4>مساعد أحمد الافتراضي</h4>
-          <span><i class="fa-solid fa-circle" style="font-size: 7px;"></i> متصل | خبير تسويق ونمو</span>
+          <h4>مساعد أحمد التحليلي</h4>
+          <span><i class="fa-solid fa-circle" style="font-size: 7px;"></i> متصل | فاهم كل تفصيلة في التسويق</span>
         </div>
       </div>
       <button class="close-ai-chat" id="closeAiChatBtn"><i class="fa-solid fa-xmark"></i></button>
@@ -965,22 +985,24 @@
     <!-- سجل الرسائل -->
     <div class="ai-chat-messages" id="chatMessages">
       <div class="msg bot">
-        أهلاً بك! أنا المساعد الافتراضي لـ <strong>أحمد</strong>. 🎯<br>
-        أعرف كل شيء عن خدمات أحمد في الـ Media Buying، وتطوير صفحات الهبوط، وبناء الفانلز لزيادة مبيعات نشاطك التجاري. كيف يمكنني مساعدتك اليوم؟
+        أهلاً بك! أنا المساعد الافتراضي والتحليلي لـ <strong>أحمد</strong>. 🎯<br><br>
+        أنا هنا ممثلٌ عن أحمد وفاهم تفكيره التسويقي بالكامل: من تحليل الأنشطة التجارية والمنافسين، وإدارة إعلانات Meta وTikTok، وحتى بناء صفحات الهبوط والـ Funnels وخفض تكلفة العميل (CPA).<br><br>
+        تفضل، ما هو استفسارك أو مشكلتك الإعلانية؟
       </div>
     </div>
 
-    <!-- أسئلة سريعة مجهزة -->
+    <!-- أسئلة سريعة ذكية -->
     <div class="ai-quick-questions">
-      <div class="quick-chip" onclick="askQuestion('ما هي خدمات أحمد بالتفصيل؟')">ما هي خدمات أحمد؟</div>
-      <div class="quick-chip" onclick="askQuestion('كيف يساعد أحمد المتاجر في زيادة المبيعات؟')">زيادة مبيعات المتاجر؟</div>
-      <div class="quick-chip" onclick="askQuestion('لماذا لا نعتمد فقط على الـ Boost Post؟')">مشكلة Boost Post؟</div>
-      <div class="quick-chip" onclick="askQuestion('كيف أتواصل مع أحمد مباشرة؟')">رقم الواتساب</div>
+      <div class="quick-chip" onclick="askQuestion('كيف يحلل أحمد النشاط التجاري قبل الإعلانات؟')">تحليل النشاط قبل الإعلان</div>
+      <div class="quick-chip" onclick="askQuestion('ما مشكلة الـ Boost Post في رأي أحمد؟')">ليه بلاش Boost Post؟</div>
+      <div class="quick-chip" onclick="askQuestion('كيف يساعد أحمد المتاجر في خفض CPA وزيادة ROAS؟')">خفض تكلفة العميل CPA</div>
+      <div class="quick-chip" onclick="askQuestion('ما هي استراتيجية مشروع أم حبيبة السابقة؟')">مشروع أم حبيبة السابق</div>
+      <div class="quick-chip" onclick="askQuestion('كيف أتواصل مع أحمد على الواتساب؟')">الواتساب: 01552207343</div>
     </div>
 
     <!-- إدخال الرسائل -->
     <div class="ai-chat-input-area">
-      <input type="text" id="aiUserInput" placeholder="اكتب استفسارك هنا..." onkeypress="handleEnter(event)">
+      <input type="text" id="aiUserInput" placeholder="اسأل عن أي تفصيلة تسويقية أو خدمة..." onkeypress="handleEnter(event)">
       <button class="ai-send-btn" onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
     </div>
   </div>
@@ -1003,7 +1025,7 @@
     </p>
   </footer>
 
-  <!-- السكربت التفاعلي -->
+  <!-- السكربت التفاعلي ومحرك التفكير الذكي -->
   <script>
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
@@ -1022,43 +1044,98 @@
       });
     }
 
-    // تفاعل الزر الذكي (+)
+    // تفاعل الزر في اليمين مع فتح الشات في الشمال
     const smartHubContainer = document.getElementById('smartHubContainer');
     const smartHubBtn = document.getElementById('smartHubBtn');
     const triggerAiChat = document.getElementById('triggerAiChat');
     const aiChatWindow = document.getElementById('aiChatWindow');
     const closeAiChatBtn = document.getElementById('closeAiChatBtn');
 
-    // فتح وغلق القائمة بالضغط على (+)
-    smartHubBtn.addEventListener('click', () => {
+    smartHubBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       smartHubContainer.classList.toggle('active');
     });
 
-    // عند الضغط على خيار الـ AI من القائمة
-    triggerAiChat.addEventListener('click', () => {
-      smartHubContainer.classList.remove('active'); // إغلاق قائمة +
-      aiChatWindow.classList.add('active'); // فتح نافذة الشات
+    triggerAiChat.addEventListener('click', (e) => {
+      e.stopPropagation();
+      smartHubContainer.classList.remove('active');
+      aiChatWindow.classList.add('active'); // يفتح في الشمال
     });
 
     closeAiChatBtn.addEventListener('click', () => {
       aiChatWindow.classList.remove('active');
     });
 
-    // إغلاق قائمة الزر العائم عند الضغط في أي مكان خارجها
     document.addEventListener('click', (e) => {
       if (!smartHubContainer.contains(e.target) && !aiChatWindow.contains(e.target)) {
         smartHubContainer.classList.remove('active');
       }
     });
 
-    // قاعدة بيانات ومعلومات أحمد (Knowledge Base)
-    const ahmedData = {
-      services: "أحمد يقدم 4 ركائز رئيسية: \n1. إدارة الحملات الإعلانية الممولة (Media Buying) على فيسبوك، إنستجرام، وتيك توك.\n2. إعداد الاستراتيجيات التسويقية وتحليل المنافسين والجمهور.\n3. إنشاء وتطوير صفحات الهبوط (Landing Pages) والمواقع لرفع معدل التحويل.\n4. صناعة العروض والرسائل الإعلانية المقنعة (Copywriting & Funnel Building).",
-      boostPost: "أحمد لا ينصح بالاعتماد على زر Boost Post فقط! لأن تشغيل الإعلانات بهذه الطريقة عشوائي ويهدر الميزانية. فلسفة أحمد تعتمد على Business → Offer → Audience → Funnel → Creative → Tracking؛ أي دراسة النشاط وبناء مسار يحول الزائر لعميل فعلي مع قياس الـ ROAS والـ CPA بدقة.",
-      ecom: "أحمد يساعد المتاجر من خلال فهم هوية المنتج، صياغة عرض لا يُقاوم، واختبار زوايا إعلانية متعددة مع تجهيز صفحة هبوط سريعة، ثم إعادة الاستهداف (Retargeting) لمضاعفة معدل الشراء وخفض تكلفة الحصول على العميل.",
-      contact: "يمكنك التواصل مباشرة مع أحمد لحجز استشارتك أو بدء حملتك عبر الواتساب أو الاتصال على الرقم: 01552207343.",
-      pricing: "الباقات تنقسم إلى: باقة الـ Media Buyer الشهرية، باقة منظومة النمو الشاملة (Full Funnel)، وجلسات الاستشارة الخاصة لتحليل الحساب الإعلاني. يمكنك التواصل على 01552207343 لاختيار الأنسب لنشاطك."
-    };
+    // ========================================================
+    // عقل المساعد الافتراضي الموسع (الـ Deep Knowledge Engine)
+    // ========================================================
+    function generateDeepAiReply(query) {
+      const q = query.toLowerCase();
+
+      // 1. فلسفة أحمد في تحليل النشاط واستراتيجية العمل
+      if (q.includes('تحليل') || q.includes('استراتيجية') || q.includes('تفكير') || q.includes('منهجية') || q.includes('خطوات')) {
+        return "🧠 <strong>فلسفة أحمد التسويقية:</strong><br>" +
+               "أحمد لا يتعامل مع التسويق كـ 'اعمل إعلان وخلاص'! بل يفكر في المسار الكامل:<br>" +
+               "<code>Business ➔ Offer ➔ Audience ➔ Funnel ➔ Creative ➔ Ads ➔ Landing Page ➔ Conversion ➔ Retargeting ➔ Optimization</code>.<br><br>" +
+               "قبل ضخ أي جنيه، يدرس أحمد النشاط، الميزة التنافسية، المنافسين، وسلوك العميل لتقديم عرض لا يُقاوم (Irresistible Offer).";
+      }
+
+      // 2. مشكلة الـ Boost Post والترويج العشوائي
+      if (q.includes('بوست') || q.includes('boost') || q.includes('ترويج') || q.includes('عشوائي')) {
+        return "⚠️ <strong>رأي أحمد في زر Boost Post:</strong><br>" +
+               "زر Boost Post هو أكبر فخ لإهدار الميزانية! لأنه يستهدف تفاعلات وهمية (Likes/Comments) دون بناء Funnel حقيقي أو تتبع دقيق للمبيعات.<br><br>" +
+               "أحمد يدير الحملات عبر الـ Ads Manager بهيكلة احترافية، اختبار للـ Creatives، ضبط البيكسل، وإعادة الاستهداف لتحويل الزوار لمبيعات حقيقية.";
+      }
+
+      // 3. خفض تكلفة العميل (CPA) ورفع الـ ROAS
+      if (q.includes('cpa') || q.includes('roas') || q.includes('تكلفة') || q.includes('مبيعات') || q.includes('متجر') || q.includes('ارباح') || q.includes('نتائج')) {
+        return "📈 <strong>كيف يرفع أحمد المبيعات ويقلل التكلفة (CPA)؟</strong><br>" +
+               "1. <strong>اختبار زوايا إعلانية (Creative Testing):</strong> صياغة Hooks وCreatives موجهة لمشاكل العميل.<br>" +
+               "2. <strong>تطوير صفحات الهبوط (Landing Pages):</strong> تسريع التحميل وكتابة محتوى يقنع الزائر فوراً بالشراء.<br>" +
+               "3. <strong>إعادة الاستهداف (Retargeting):</strong> استرجاع العملاء الذين لم يشتروا في المرة الأولى لرفع الـ ROAS إلى أقصى حد.<br>" +
+               "4. مراقبة البيانات اليومية واستبعاد الإعلانات غير المجدية وتكبير الميزانية (Scaling) على الرابحة فقط.";
+      }
+
+      // 4. مشروع أم حبيبة السابق
+      if (q.includes('ام حبيبة') || q.includes('مشروع سابق') || q.includes('سابق') || q.includes('قصة')) {
+        return "📚 <strong>مشروع سابق لأحمد (مشروع أم حبيبة):</strong><br>" +
+               "هو مشروع لتحفيظ وتعليم القرآن الكريم للنساء والفتيات في منطقة 'منيت سمنود' بسعر اشتراك رمزي (100).<br>" +
+               "قام أحمد ببناء استراتيجية تعتمد على الاستهداف المناطقي الدقيق، بدون افتراضات عشوائية، وركز على صناعة محتوى يبني الثقة ويخاطب الأمهات والفتيات مباشرة، مما أظهر كفاءة الحملة دون هدر في الميزانية.";
+      }
+
+      // 5. صفحات الهبوط والبرمجة (Landing Pages & Web Development)
+      if (q.includes('صفحة هبوط') || q.includes('landing') || q.includes('موقع') || q.includes('برمجة') || q.includes('متجر')) {
+        return "💻 <strong>صفحات الهبوط وتطوير المواقع مع أحمد:</strong><br>" +
+               "أحمد لا يقدم تسويقاً منفصلاً، بل يدمج الـ Media Buying مع برمجة وتطوير Landing Pages فائقة السرعة ومتوافقة 100% مع الهواتف، مجهزة بزر واتساب ونماذج طلب مباشرة، ومربوطة بأدوات التتبع لقياس كل نقرة وتحويل الزوار لعملاء فعليين.";
+      }
+
+      // 6. باقات التعاقد والأسعار
+      if (q.includes('سعر') || q.includes('اسعار') || q.includes('باقة') || q.includes('تكلفة') || q.includes('اشتراك')) {
+        return "💼 <strong>أنظمة وباقات العمل مع أحمد:</strong><br>" +
+               "1. <strong>باقة الـ Media Buying:</strong> إدارة حملات فيسبوك، إنستجرام، وتيك توك مع تقارير أداء ومراقبة يومية.<br>" +
+               "2. <strong>باقة النمو الشامل (Full Funnel) 🔥 الأكثر طلباً:</strong> تشمل إدارة الإعلانات + تصميم وتطوير صفحة الهبوط + كتابة الـ Copywriting والتوسع.<br>" +
+               "3. <strong>جلسة استشارة خاصة:</strong> لتحليل حسابك الإعلاني ومتجرك وتحديد الأخطاء.<br><br>" +
+               "تواصل مباشرة مع أحمد على الواتساب <strong>01552207343</strong> لتحديد الباقة الأنسب لحجم نشاطك.";
+      }
+
+      // 7. التواصل المباشر ورقم الواتساب
+      if (q.includes('واتساب') || q.includes('تواصل') || q.includes('رقم') || q.includes('موبايل') || q.includes('اتصال') || q.includes('حجز')) {
+        return "📞 <strong>تواصل مع أحمد مباشرة الآن:</strong><br>" +
+               "رقم الهاتف والواتساب المباشر: <a href='https://wa.me/201552207343' target='_blank' style='color: var(--neon-cyan); font-weight: 800;'>01552207343</a>.<br>" +
+               "يمكنك مراسلته لمناقشة أرقام نشاطك وحجز جلستك الاستشارية فوراً!";
+      }
+
+      // الإجابة الشاملة التحليلية لأي سؤال آخر
+      return "💡 <strong>تحليل واستشارة سريعة:</strong><br>" +
+             "أحمد يركز على مساعدة أصحاب الأنشطة والمتاجر في بناء نظام نمو واضح (Sales Growth) قائم على الأرقام واختبار الإعلانات وتطوير صفحات الهبوط.<br><br>" +
+             "هل تحب أن نتحدث عن: <strong>(1) إدارة إعلاناتك</strong>، <strong>(2) بناء صفحة هبوط لمنتجك</strong>، أو <strong>(3) التواصل مباشرة مع أحمد على 01552207343</strong>؟";
+    }
 
     function sendMessage() {
       const input = document.getElementById('aiUserInput');
@@ -1068,25 +1145,26 @@
       appendMessage(text, 'user');
       input.value = '';
 
+      // تأثير كتابة وتفكير الذكاء الاصطناعي
       setTimeout(() => {
-        const reply = generateAiReply(text);
+        const reply = generateDeepAiReply(text);
         appendMessage(reply, 'bot');
-      }, 500);
+      }, 400);
     }
 
     function askQuestion(q) {
       appendMessage(q, 'user');
       setTimeout(() => {
-        const reply = generateAiReply(q);
+        const reply = generateDeepAiReply(q);
         appendMessage(reply, 'bot');
-      }, 500);
+      }, 400);
     }
 
     function appendMessage(text, sender) {
       const chatMessages = document.getElementById('chatMessages');
       const msgDiv = document.createElement('div');
       msgDiv.className = `msg ${sender}`;
-      msgDiv.innerHTML = text.replace(/\n/g, '<br>');
+      msgDiv.innerHTML = text;
       chatMessages.appendChild(msgDiv);
       chatMessages.scrollTop = chatMessages.scrollHeight;
     }
@@ -1095,28 +1173,7 @@
       if (e.key === 'Enter') sendMessage();
     }
 
-    // محرك الإجابات الذكي
-    function generateAiReply(query) {
-      const q = query.toLowerCase();
-
-      if (q.includes('خدمات') || q.includes('شغل') || q.includes('بيعمل ايه') || q.includes('مجالات')) {
-        return ahmedData.services;
-      } else if (q.includes('بوست') || q.includes('boost') || q.includes('ترويج')) {
-        return ahmedData.boostPost;
-      } else if (q.includes('مبيعات') || q.includes('متجر') || q.includes('ارباح') || q.includes('عملاء')) {
-        return ahmedData.ecom;
-      } else if (q.includes('تواصل') || q.includes('واتساب') || q.includes('رقم') || q.includes('اتصل') || q.includes('موبايل')) {
-        return ahmedData.contact;
-      } else if (q.includes('سعر') || q.includes('اسعار') || q.includes('باقة') || q.includes('تكلفة')) {
-        return ahmedData.pricing;
-      } else if (q.includes('ام حبيبة') || q.includes('مشروع سابق')) {
-        return "من المشاريع السابقة التي وضع لها أحمد استراتيجية مخصصة مشروع 'أم حبيبة' لتحفيظ القرآن الكريم في منيت سمنود، حيث قام بدراسة الجمهور وتحديد زوايا استهداف دقيقة للسوشيال ميديا دون افتراضات عشوائية.";
-      } else {
-        return "أنا هنا لمساعدتك بخصوص استراتيجيات أحمد التسويقية وإدارة الإعلانات وتطوير صفحات الهبوط. يمكنك السؤال عن خدماته، أسلوب عمله مع المتاجر، أو التواصل معه مباشرة على الواتساب: <strong>01552207343</strong>.";
-      }
-    }
-
-    // مؤقت العرض الترويجي
+    // المؤقت
     let duration = 48 * 3600 + 15 * 60 + 20;
     const timerDisplay = document.getElementById('timer');
     setInterval(() => {
